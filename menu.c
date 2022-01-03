@@ -3,7 +3,25 @@
 #include <conio.h>
 #include <Windows.h>
 #include "AirLine.h"
-
+void gotoxy(int x, int y) // 좌표 설정 함수
+{
+	COORD pos = { x,y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+void hidecursor() // 커서 숨기기 함수
+{
+	CONSOLE_CURSOR_INFO c = { 0 };
+	c.dwSize = 1;
+	c.bVisible = false;
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &c);
+}
+void print() // key 입력에 대한 설명
+{
+	gotoxy(26, 23);
+	printf("o Continue : press ANY key");
+	gotoxy(26, 24);
+	printf("o Exit : press ESC key");
+}
 void Menu(int x, int y) // 메뉴를 출력
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
