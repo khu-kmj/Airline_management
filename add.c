@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "AirLine.h"
-void Base(guest* gue, int count) // ÀúÀåµÇ¾îÀÖ´Â ÆÄÀÏÀ» Ãâ·ÂÇÑ´Ù.
+void Base(guest* gue, int count) 
 {
 	gotoxy(17, 0);
 	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
@@ -79,7 +79,7 @@ void Base(guest* gue, int count) // ÀúÀåµÇ¾îÀÖ´Â ÆÄÀÏÀ» Ãâ·ÂÇÑ´Ù.
 	gotoxy(60, count + 2);
 	printf("o ÁøÇà : ANY KEY");
 }
-void ADD(int count, char* name, int score, char* date) // ÆÄÀÏ¿¡ »õ·Î¿î Á¤º¸¸¦ ´õÇÑ´Ù
+void ADD(int count, char* name, int score, char* date) 
 {
 	FILE* fp = fopen("plain.txt", "a");
 	if (fp == NULL)
@@ -88,7 +88,7 @@ void ADD(int count, char* name, int score, char* date) // ÆÄÀÏ¿¡ »õ·Î¿î Á¤º¸¸¦ ´
 		fprintf(fp, "%d\t%s\t%d\t%s\n", ++count, name, score, date);
 	fclose(fp);
 }
-void Delete(guest* gue, int num, int count) // ÀÌ¸§À» ÅëÇØ ¼±ÅÃµÈ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÑ´Ù.
+void Delete(guest* gue, int num, int count)
 {
 	FILE* fout = fopen("plain.txt", "w");
 	for (int i = 0; i < count; i++)
@@ -98,7 +98,7 @@ void Delete(guest* gue, int num, int count) // ÀÌ¸§À» ÅëÇØ ¼±ÅÃµÈ µ¥ÀÌÅÍ¸¦ »èÁ¦Ç
 	}
 	fclose(fout);
 }
-void Mileage(guest* gue, guest cus) // ÀÌ¸§À» ÅëÇØ ¼±ÅÃµÈ µ¥ÀÌÅÍÀÇ ¸¶ÀÏ¸®Áö Á¤º¸¸¦ ÀÌ¿ëÇÏ¿© »óÇ°À» Ãâ·ÂÇÑ´Ù.
+void Mileage(guest* gue, guest cus) 
 {
 	gotoxy(30, 0);
 	int score = cus.score;
@@ -205,7 +205,7 @@ int partition(guest* list, int left, int right)
 	SWAP(list[left], list[high], temp);
 	return high;
 }
-void quick_sort(guest* list, int left, int right) // ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â À§ÇØ¼­ quick Á¤·ÄÀ» »ç¿ë
+void quick_sort(guest* list, int left, int right) 
 {
 	if (left < right)
 	{
@@ -214,7 +214,7 @@ void quick_sort(guest* list, int left, int right) // ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ±â À§ÇØ¼
 		quick_sort(list, q + 1, right);
 	}
 }
-void ascending_order(guest* gue, int count) // ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄµÈ Á¤º¸¸¦ »õ·Î¿î ÆÄÀÏ¿¡ ÀúÀåÇÑ´Ù.
+void ascending_order(guest* gue, int count) 
 {
 	FILE* fout = fopen("plain.txt", "w");
 	quick_sort(gue, 0, count - 1);
